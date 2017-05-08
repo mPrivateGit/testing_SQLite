@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Testing_SQLite</string>
+    <string name="title_activity_add">Add</string>
+    <string name="add_button">Add</string>
+    <string name="set_first_name">Please set you first name</string>
+    <string name="set_second_name">and second name</string>
+    <string name="set_phone_number">set your phone number</string>
+    <string name="new_contact">New Contact</string>
+    <string name="contacts">Contacts</string>
+</resources>
