@@ -28,7 +28,7 @@ public class MainActivity extends Activity  {
         FragmentTransaction ft = fm.beginTransaction();
 
         // добавляем фрагмент
-        BlankFragment myFragment = new BlankFragment();
+        ViewContact myFragment = new ViewContact();
         ft.add(R.id.frgmCont, myFragment);
         ft.commit();
 
@@ -52,7 +52,7 @@ public class MainActivity extends Activity  {
                 FragmentTransaction ft = fm.beginTransaction();
 
                 // добавляем фрагмент
-                BlankFragment myFragment = new BlankFragment();
+                ViewContact myFragment = new ViewContact();
                 ft.add(R.id.frgmCont, myFragment);
                 ft.commit();
 
