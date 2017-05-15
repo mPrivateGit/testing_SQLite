@@ -1,18 +1,18 @@
 package com.example.aprivate.testing_sqlite;
 
 
-import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 
 
 
-public class MainActivity extends Activity  {
+public class MainActivity extends AppCompatActivity {
 
     private Button mButtonNewContact;
     private Button mButtonContacts;
@@ -24,7 +24,7 @@ public class MainActivity extends Activity  {
         setContentView(R.layout.activity_main);
 
 
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
 
         // добавляем фрагмент
@@ -48,7 +48,7 @@ public class MainActivity extends Activity  {
         mButtonContacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm = getFragmentManager();
+                FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
 
                 // добавляем фрагмент
