@@ -7,4 +7,11 @@
     <string name="set_phone_number">set your phone number</string>
     <string name="new_contact">New Contact</string>
     <string name="contacts">Contacts</string>
+    <string name="recycler_view_str">RecyclerView</string>
+    <string name="title_activity_main">Main</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

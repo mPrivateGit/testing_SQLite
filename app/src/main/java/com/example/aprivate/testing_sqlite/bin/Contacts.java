@@ -1,10 +1,9 @@
-package com.example.aprivate.testing_sqlite;
+package com.example.aprivate.testing_sqlite.bin;
 
 
-public class Contacts implements Iterator{
+public class Contacts {
 
     private static final String TAG = "Contacts***********=== ";
-
 
     private String mFirstNames;
     private String mSecondNames;
@@ -30,34 +29,6 @@ public class Contacts implements Iterator{
     public void setmPhoneNumbers(String mPhoneNumbers) {
         this.mPhoneNumbers = mPhoneNumbers;
     }
-
-    @Override
-    public Contacts next() {
-        return null;
-    }
-
-    @Override
-    public boolean hasNext() {
-        return false;
-    }
-
-    @Override
-    public void remove() {
-
-    }
-
-    @Override
-    public void addContact(String s, String a, String d) {
-
-    }
-
-    @Override
-    public int getContacts(int index) {
-
-        return 0;
-//        return this.mContacts.get(index);
-    }
-
 
 
 }

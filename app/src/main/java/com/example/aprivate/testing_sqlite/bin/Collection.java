@@ -1,7 +1,6 @@
-package com.example.aprivate.testing_sqlite;
+package com.example.aprivate.testing_sqlite.bin;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 
@@ -19,7 +18,7 @@ public class Collection {
         mContacts = new ArrayList<>();
     }
 
-    public List<Contacts> getCrimes() {
+    public ArrayList<Contacts> getContacts() {
         return mContacts;
     }
 }

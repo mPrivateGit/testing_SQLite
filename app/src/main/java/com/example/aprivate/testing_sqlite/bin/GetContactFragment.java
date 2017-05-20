@@ -1,5 +1,4 @@
-package com.example.aprivate.testing_sqlite;
-
+package com.example.aprivate.testing_sqlite.bin;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,14 +9,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.aprivate.testing_sqlite.R;
 
-
-
-public class BlankFragment extends Fragment {
-
+public class GetContactFragment extends Fragment {
     private static final String TAG = "BF_class ===========";
 
-    public TextView mTextViewFirstName;
+    private TextView mTextViewFirstName;
     private TextView mTextViewSecondName;
     private TextView mTextViewPhoneNumber;
 
@@ -28,19 +25,17 @@ public class BlankFragment extends Fragment {
     private Button mNextButton;
     private Button mBackButton;
 
-    private int index = 0;
 
+    private int index = 0;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View v = inflater.inflate(R.layout.fragment_blank, container, false);
 
         mTextViewFirstName = (TextView) v.findViewById(R.id.get_first_name);
         mTextViewSecondName = (TextView) v.findViewById(R.id.get_second_name);
         mTextViewPhoneNumber = (TextView) v.findViewById(R.id.get_phone_number);
-
 
         mNextButton = (Button) v.findViewById(R.id.next_button);
         mNextButton.setOnClickListener(new View.OnClickListener() {
@@ -62,42 +57,37 @@ public class BlankFragment extends Fragment {
             }
         });
 
-
         setContent();
-
-
         return v;
     }
 
     private void setContent(){
-        if (Collection.getInstance().getCrimes().size()==0){
+        if (Collection.getInstance().getContacts().size()==0){
             mTextViewFirstName.setText("Пока нет контактов");
             mTextViewSecondName.setText("Добавь новый контак");
             mTextViewPhoneNumber.setText(" ");
-        } else if(Collection.getInstance().getCrimes().size()<=index) {
+        } else if(Collection.getInstance().getContacts().size()<=index) {
             index = 0;
-            mFirstName = Collection.getInstance().getCrimes().get(index).getmFirstNames();
-            mSecondName = Collection.getInstance().getCrimes().get(index).getmSecondNames();
-            mPhoneNumber = Collection.getInstance().getCrimes().get(index).getmPhoneNumbers();
+            mFirstName = Collection.getInstance().getContacts().get(index).getmFirstNames();
+            mSecondName = Collection.getInstance().getContacts().get(index).getmSecondNames();
+            mPhoneNumber = Collection.getInstance().getContacts().get(index).getmPhoneNumbers();
 
             mTextViewFirstName.setText(mFirstName);
             mTextViewSecondName.setText(mSecondName);
             mTextViewPhoneNumber.setText(mPhoneNumber);
-
         } else if (index<0) {
-            index = Collection.getInstance().getCrimes().size() - 1;
-            mFirstName = Collection.getInstance().getCrimes().get(index).getmFirstNames();
-            mSecondName = Collection.getInstance().getCrimes().get(index).getmSecondNames();
-            mPhoneNumber = Collection.getInstance().getCrimes().get(index).getmPhoneNumbers();
+            index = Collection.getInstance().getContacts().size() - 1;
+            mFirstName = Collection.getInstance().getContacts().get(index).getmFirstNames();
+            mSecondName = Collection.getInstance().getContacts().get(index).getmSecondNames();
+            mPhoneNumber = Collection.getInstance().getContacts().get(index).getmPhoneNumbers();
 
             mTextViewFirstName.setText(mFirstName);
             mTextViewSecondName.setText(mSecondName);
             mTextViewPhoneNumber.setText(mPhoneNumber);
-
         } else {
-            mFirstName = Collection.getInstance().getCrimes().get(index).getmFirstNames();
-            mSecondName = Collection.getInstance().getCrimes().get(index).getmSecondNames();
-            mPhoneNumber = Collection.getInstance().getCrimes().get(index).getmPhoneNumbers();
+            mFirstName = Collection.getInstance().getContacts().get(index).getmFirstNames();
+            mSecondName = Collection.getInstance().getContacts().get(index).getmSecondNames();
+            mPhoneNumber = Collection.getInstance().getContacts().get(index).getmPhoneNumbers();
 
             mTextViewFirstName.setText(mFirstName);
             mTextViewSecondName.setText(mSecondName);
@@ -105,7 +95,21 @@ public class BlankFragment extends Fragment {
         }
 
 //        mTextViewFirstName.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "fonts/"));
-
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        onDestroyView();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }

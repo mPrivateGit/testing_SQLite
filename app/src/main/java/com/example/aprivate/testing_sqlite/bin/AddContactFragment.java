@@ -1,17 +1,19 @@
-package com.example.aprivate.testing_sqlite;
+package com.example.aprivate.testing_sqlite.bin;
 
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class AddContact extends AppCompatActivity {
+import com.example.aprivate.testing_sqlite.R;
 
+public class AddContactFragment extends Fragment {
     private static final String TAG = "ADD-------------: ";
-
 
     private Button mButtonAdd;
     private EditText mEditTextFirstName;
@@ -24,16 +26,14 @@ public class AddContact extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add);
+    public View onCreateView( LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.activity_add, container, false);
 
-
-        mButtonAdd = (Button) findViewById(R.id.add_button);
-        mEditTextFirstName = (EditText) findViewById(R.id.set_first_name);
-        mEditTextSecondName = (EditText) findViewById(R.id.set_second_name);
-        mEditTextPhoneNumber = (EditText) findViewById(R.id.set_phone_number);
-
+        mButtonAdd = (Button) v.findViewById(R.id.add_button);
+        mEditTextFirstName = (EditText) v.findViewById(R.id.set_first_name);
+        mEditTextSecondName = (EditText) v.findViewById(R.id.set_second_name);
+        mEditTextPhoneNumber = (EditText) v.findViewById(R.id.set_phone_number);
 
         mButtonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,22 +43,17 @@ public class AddContact extends AppCompatActivity {
                 mSecondName = mEditTextSecondName.getText().toString();
                 mPhoneNumber = mEditTextPhoneNumber.getText().toString();
 
-
                 Contacts c = new Contacts();
                 c.setmFirstNames(mFirstName);
                 c.setmSecondNames(mSecondName);
                 c.setmPhoneNumbers(mPhoneNumber);
 
+                Collection.getInstance().getContacts().add(c);
 
-                Collection.getInstance().getCrimes().add(c);
-
-
-                Intent i = new Intent(AddContact.this, MainActivity.class);
-
-
+                Intent i = new Intent(getContext(), MainActivity.class);
                 startActivity(i);
-
             }
         });
+        return v;
     }
 }

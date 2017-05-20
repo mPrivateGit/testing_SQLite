@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.aprivate.testing_sqlite.AddContact">
+    tools:context="com.example.aprivate.testing_sqlite.bin.AddContactFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,6 +47,7 @@
         android:layout_weight="0.2"
         android:gravity="bottom">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,14 +61,21 @@
                 android:text="@string/new_contact" />
         </LinearLayout>
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="0.33">
-            <android.support.v4.widget.Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            android:layout_gravity="top"
+            android:layout_weight="0">
+
+            <Button
+                android:id="@+id/rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="@string/recycler_view_str"/>
+
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
