@@ -1,24 +1,32 @@
 package com.example.aprivate.testing_sqlite.bin;
 
+import android.content.Context;
+
 import java.util.ArrayList;
-
-
+import java.util.List;
 
 
 public class Collection {
-    private static final Collection ourInstance = new Collection();
 
-    private ArrayList<Contacts> mContacts;
+    public static Collection sCollection;
 
-    public static Collection getInstance() {
-        return ourInstance;
+    private List<Contacts> mContacts;
+
+    public static Collection get(Context context){
+        if (sCollection == null){
+            sCollection = new Collection(context);
+        }
+        return sCollection;
     }
 
-    private Collection() {
+
+    private Collection(Context context) {
         mContacts = new ArrayList<>();
     }
 
-    public ArrayList<Contacts> getContacts() {
+    public List<Contacts> getContacts() {
         return mContacts;
     }
+
+
 }

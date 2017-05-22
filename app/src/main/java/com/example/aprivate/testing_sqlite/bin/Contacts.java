@@ -1,6 +1,8 @@
 package com.example.aprivate.testing_sqlite.bin;
 
 
+import java.util.UUID;
+
 public class Contacts {
 
     private static final String TAG = "Contacts***********=== ";
@@ -8,7 +10,11 @@ public class Contacts {
     private String mFirstNames;
     private String mSecondNames;
     private String mPhoneNumbers;
+    private UUID mId;
 
+    public Contacts(){
+        mId = UUID.randomUUID();
+    }
 
     public String getmFirstNames() {
 
@@ -30,5 +36,8 @@ public class Contacts {
         this.mPhoneNumbers = mPhoneNumbers;
     }
 
+    public UUID getmId() {
+        return mId;
+    }
 
 }

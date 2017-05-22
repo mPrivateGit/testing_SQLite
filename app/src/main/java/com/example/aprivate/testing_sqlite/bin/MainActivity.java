@@ -9,12 +9,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.aprivate.testing_sqlite.R;
-import com.example.aprivate.testing_sqlite.adapters.CustomAdapter;
+
 
 //TODO !!!!  Убивай фоновые фрагменты
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRectcleView;
     private LinearLayoutManager mLinearLayoutManager;
-    private CustomAdapter mCustomAdapter;
+
 
     private Fragment mCostulFragment;
 
@@ -34,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
+        setSupportActionBar(mActionBarToolbar);
+
         start();
 
         mRectcleView = (RecyclerView) findViewById(R.id.recycler_view_id);
@@ -82,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
 
-                RecyclerViewFragment recyclerViewFragment = new RecyclerViewFragment();
+                RVF recyclerViewFragment = new RVF();
                 mCostulFragment = recyclerViewFragment;
                 ft.add(R.id.frgmCont, recyclerViewFragment);
                 ft.commit();
@@ -103,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
 
-            RecyclerViewFragment recyclerViewFragment = new RecyclerViewFragment();
+            RVF recyclerViewFragment = new RVF();
             mCostulFragment = recyclerViewFragment;
             ft.add(R.id.frgmCont, mCostulFragment);
             ft.commit();
@@ -112,10 +118,16 @@ public class MainActivity extends AppCompatActivity {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
 
-            RecyclerViewFragment recyclerViewFragment = new RecyclerViewFragment();
+            RVF recyclerViewFragment = new RVF();
             mCostulFragment = recyclerViewFragment;
             ft.add(R.id.frgmCont, mCostulFragment);
             ft.commit();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
+        return true;
     }
 }

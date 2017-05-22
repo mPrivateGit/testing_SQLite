@@ -7,6 +7,10 @@
     android:orientation="vertical"
     tools:context="com.example.aprivate.testing_sqlite.bin.AddContactFragment">
 
+    <include layout="@layout/test_layout">
+
+    </include>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

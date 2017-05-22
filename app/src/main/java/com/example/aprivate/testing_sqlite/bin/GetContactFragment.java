@@ -11,8 +11,11 @@ import android.widget.TextView;
 
 import com.example.aprivate.testing_sqlite.R;
 
+import java.util.UUID;
+
 public class GetContactFragment extends Fragment {
     private static final String TAG = "BF_class ===========";
+    private static final String ARG_CRIME_ID = "contact_id";
 
     private TextView mTextViewFirstName;
     private TextView mTextViewSecondName;
@@ -27,6 +30,14 @@ public class GetContactFragment extends Fragment {
 
 
     private int index = 0;
+
+    public static GetContactFragment newInstance(UUID crimeId) {
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_CRIME_ID, crimeId);
+        GetContactFragment fragment = new GetContactFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -61,41 +72,41 @@ public class GetContactFragment extends Fragment {
         return v;
     }
 
-    private void setContent(){
-        if (Collection.getInstance().getContacts().size()==0){
-            mTextViewFirstName.setText("Пока нет контактов");
-            mTextViewSecondName.setText("Добавь новый контак");
-            mTextViewPhoneNumber.setText(" ");
-        } else if(Collection.getInstance().getContacts().size()<=index) {
-            index = 0;
-            mFirstName = Collection.getInstance().getContacts().get(index).getmFirstNames();
-            mSecondName = Collection.getInstance().getContacts().get(index).getmSecondNames();
-            mPhoneNumber = Collection.getInstance().getContacts().get(index).getmPhoneNumbers();
-
-            mTextViewFirstName.setText(mFirstName);
-            mTextViewSecondName.setText(mSecondName);
-            mTextViewPhoneNumber.setText(mPhoneNumber);
-        } else if (index<0) {
-            index = Collection.getInstance().getContacts().size() - 1;
-            mFirstName = Collection.getInstance().getContacts().get(index).getmFirstNames();
-            mSecondName = Collection.getInstance().getContacts().get(index).getmSecondNames();
-            mPhoneNumber = Collection.getInstance().getContacts().get(index).getmPhoneNumbers();
-
-            mTextViewFirstName.setText(mFirstName);
-            mTextViewSecondName.setText(mSecondName);
-            mTextViewPhoneNumber.setText(mPhoneNumber);
-        } else {
-            mFirstName = Collection.getInstance().getContacts().get(index).getmFirstNames();
-            mSecondName = Collection.getInstance().getContacts().get(index).getmSecondNames();
-            mPhoneNumber = Collection.getInstance().getContacts().get(index).getmPhoneNumbers();
-
-            mTextViewFirstName.setText(mFirstName);
-            mTextViewSecondName.setText(mSecondName);
-            mTextViewPhoneNumber.setText(mPhoneNumber);
-        }
-
-//        mTextViewFirstName.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "fonts/"));
-    }
+//    private void setContent(){
+//        if (Collection.getInstance().getContacts().size()==0){
+//            mTextViewFirstName.setText("Пока нет контактов");
+//            mTextViewSecondName.setText("Добавь новый контак");
+//            mTextViewPhoneNumber.setText(" ");
+//        } else if(Collection.getInstance().getContacts().size()<=index) {
+//            index = 0;
+//            mFirstName = Collection.getInstance().getContacts().get(index).getmFirstNames();
+//            mSecondName = Collection.getInstance().getContacts().get(index).getmSecondNames();
+//            mPhoneNumber = Collection.getInstance().getContacts().get(index).getmPhoneNumbers();
+//
+//            mTextViewFirstName.setText(mFirstName);
+//            mTextViewSecondName.setText(mSecondName);
+//            mTextViewPhoneNumber.setText(mPhoneNumber);
+//        } else if (index<0) {
+//            index = Collection.getInstance().getContacts().size() - 1;
+//            mFirstName = Collection.getInstance().getContacts().get(index).getmFirstNames();
+//            mSecondName = Collection.getInstance().getContacts().get(index).getmSecondNames();
+//            mPhoneNumber = Collection.getInstance().getContacts().get(index).getmPhoneNumbers();
+//
+//            mTextViewFirstName.setText(mFirstName);
+//            mTextViewSecondName.setText(mSecondName);
+//            mTextViewPhoneNumber.setText(mPhoneNumber);
+//        } else {
+//            mFirstName = Collection.getInstance().getContacts().get(index).getmFirstNames();
+//            mSecondName = Collection.getInstance().getContacts().get(index).getmSecondNames();
+//            mPhoneNumber = Collection.getInstance().getContacts().get(index).getmPhoneNumbers();
+//
+//            mTextViewFirstName.setText(mFirstName);
+//            mTextViewSecondName.setText(mSecondName);
+//            mTextViewPhoneNumber.setText(mPhoneNumber);
+//        }
+//
+////        mTextViewFirstName.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "fonts/"));
+//    }
 
     @Override
     public void onPause() {
@@ -111,5 +122,41 @@ public class GetContactFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    private void setContent(){
+        if (Collection.sCollection.getContacts().size()==0){
+            mTextViewFirstName.setText("Пока нет контактов");
+            mTextViewSecondName.setText("Добавь новый контак");
+            mTextViewPhoneNumber.setText(" ");
+        } else if(Collection.sCollection.getContacts().size()<=index) {
+            index = 0;
+            mFirstName = Collection.sCollection.getContacts().get(index).getmFirstNames();
+            mSecondName = Collection.sCollection.getContacts().get(index).getmSecondNames();
+            mPhoneNumber = Collection.sCollection.getContacts().get(index).getmPhoneNumbers();
+
+            mTextViewFirstName.setText(mFirstName);
+            mTextViewSecondName.setText(mSecondName);
+            mTextViewPhoneNumber.setText(mPhoneNumber);
+        } else if (index<0) {
+            index = Collection.sCollection.getContacts().size() - 1;
+            mFirstName = Collection.sCollection.getContacts().get(index).getmFirstNames();
+            mSecondName = Collection.sCollection.getContacts().get(index).getmSecondNames();
+            mPhoneNumber = Collection.sCollection.getContacts().get(index).getmPhoneNumbers();
+
+            mTextViewFirstName.setText(mFirstName);
+            mTextViewSecondName.setText(mSecondName);
+            mTextViewPhoneNumber.setText(mPhoneNumber);
+        } else {
+            mFirstName = Collection.sCollection.getContacts().get(index).getmFirstNames();
+            mSecondName = Collection.sCollection.getContacts().get(index).getmSecondNames();
+            mPhoneNumber = Collection.sCollection.getContacts().get(index).getmPhoneNumbers();
+
+            mTextViewFirstName.setText(mFirstName);
+            mTextViewSecondName.setText(mSecondName);
+            mTextViewPhoneNumber.setText(mPhoneNumber);
+        }
+
+//        mTextViewFirstName.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "fonts/"));
     }
 }

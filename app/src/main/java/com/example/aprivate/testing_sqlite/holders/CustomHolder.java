@@ -4,8 +4,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.aprivate.testing_sqlite.bin.Contacts;
 import com.example.aprivate.testing_sqlite.R;
+import com.example.aprivate.testing_sqlite.bin.Contacts;
 
 public class CustomHolder extends RecyclerView.ViewHolder {
     private TextView mTextViewFirstName;

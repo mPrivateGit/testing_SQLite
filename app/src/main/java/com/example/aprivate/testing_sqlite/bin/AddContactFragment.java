@@ -48,7 +48,8 @@ public class AddContactFragment extends Fragment {
                 c.setmSecondNames(mSecondName);
                 c.setmPhoneNumbers(mPhoneNumber);
 
-                Collection.getInstance().getContacts().add(c);
+                //Collection.getInstance().getContacts().add(c);
+                Collection.sCollection.getContacts().add(c);
 
                 Intent i = new Intent(getContext(), MainActivity.class);
                 startActivity(i);
