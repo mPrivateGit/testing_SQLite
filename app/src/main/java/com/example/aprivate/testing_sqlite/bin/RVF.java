@@ -111,7 +111,7 @@ public class RVF extends Fragment{
         public CustomHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            View v = layoutInflater.inflate(R.layout.item_view, parent, false);
+            View v = layoutInflater.inflate(R.layout.activity_item_view, parent, false);
             v.setOnClickListener(mListener);
 
             return new CustomHolder(v);

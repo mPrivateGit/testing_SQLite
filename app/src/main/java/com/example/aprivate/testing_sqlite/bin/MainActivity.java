@@ -13,7 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.aprivate.testing_sqlite.R;
 
@@ -23,12 +22,9 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MAIN=======:";
 
     private Button mButtonNewContact;
-    private Button mButtonContacts;
-    private Button mGoToRecycleView;
 
     private RecyclerView mRectcleView;
     private LinearLayoutManager mLinearLayoutManager;
-
 
     private Fragment mCostulFragment;
 
@@ -58,43 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 mCostulFragment = addContact;
                 ft.add(R.id.frgmCont, mCostulFragment);
                 ft.commit();
-            }
-        });
-
-        //Contacts fragment
-        mButtonContacts = (Button) findViewById(R.id.button_contacts);
-        mButtonContacts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mCostulFragment.onDestroy();
-                FragmentManager fm = getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-
-                // добавляем фрагмент
-                GetContact myFragment = new GetContact();
-                mCostulFragment = myFragment;
-                ft.add(R.id.frgmCont, mCostulFragment);
-                ft.commit();
-            }
-        });
-
-        //RecyclerView Fragment
-        mGoToRecycleView = (Button) findViewById(R.id.rv);
-        mGoToRecycleView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mCostulFragment.onDestroy();
-
-                FragmentManager fm = getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-
-                RVF recyclerViewFragment = new RVF();
-                mCostulFragment = recyclerViewFragment;
-                ft.add(R.id.frgmCont, recyclerViewFragment);
-                ft.commit();
-
-                Toast t = Toast.makeText(MainActivity.this, "Okay?", Toast.LENGTH_SHORT);
-                t.show();
             }
         });
     }
