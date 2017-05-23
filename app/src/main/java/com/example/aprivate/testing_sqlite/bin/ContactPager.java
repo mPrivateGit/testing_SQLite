@@ -14,37 +14,36 @@ import com.example.aprivate.testing_sqlite.R;
 import java.util.List;
 import java.util.UUID;
 
-public class CrimePagerActivity extends AppCompatActivity {
-    private static final String EXTRA_CRIME_ID =
-            "com.example.aprivate.criminalintent.crime_id";
+public class ContactPager extends AppCompatActivity {
+    private static final String EXTRA_CONTACT_ID =
+            "com.example.aprivate.testing_sqlite";
 
     private ViewPager mViewPager;
     private List<Contacts> mContacts;
 
 
-    public static Intent newIntent(Context packageContext, UUID crimeId) {
-        Intent intent = new Intent(packageContext, CrimePagerActivity.class);
-        intent.putExtra(EXTRA_CRIME_ID, crimeId);
+    public static Intent newIntent(Context packageContext, UUID contactID) {
+        Intent intent = new Intent(packageContext, ContactPager.class);
+        intent.putExtra(EXTRA_CONTACT_ID, contactID);
         return intent;
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crime_pager);
+        setContentView(R.layout.activity_contact_pager);
 
-        UUID crimeId = (UUID) getIntent()
-                .getSerializableExtra(EXTRA_CRIME_ID);
+        UUID contactID = (UUID) getIntent()
+                .getSerializableExtra(EXTRA_CONTACT_ID);
 
-        mViewPager = (ViewPager) findViewById(R.id.activity_crime_pager_view_pager);
+        mViewPager = (ViewPager) findViewById(R.id.activity_contact_pager_view_pager);
         mContacts = Collection.get(this).getContacts();
         FragmentManager fragmentManager = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
             @Override
             public Fragment getItem(int position) {
                 Contacts contacts = mContacts.get(position);
-                return GetContactFragment.newInstance(contacts.getmId());
+                return GetContact.newInstance(contacts.getmId());
             }
 
             @Override
@@ -53,7 +52,7 @@ public class CrimePagerActivity extends AppCompatActivity {
             }
         });
         for (int i = 0; i < mContacts.size(); i++) {
-            if (mContacts.get(i).getmId().equals(crimeId)) {
+            if (mContacts.get(i).getmId().equals(contactID)) {
                 mViewPager.setCurrentItem(i);
                 break;
             }

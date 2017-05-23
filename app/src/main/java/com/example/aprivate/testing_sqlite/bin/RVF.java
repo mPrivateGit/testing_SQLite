@@ -88,7 +88,7 @@ public class RVF extends Fragment{
 
         @Override
         public void onClick(View v) {
-            Intent intent = CrimePagerActivity.newIntent(getActivity(),
+            Intent intent = ContactPager.newIntent(getActivity(),
                     mContacts.getmId());
             startActivity(intent);
         }

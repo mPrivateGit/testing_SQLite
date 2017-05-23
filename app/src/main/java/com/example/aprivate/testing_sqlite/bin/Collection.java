@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 public class Collection {
@@ -19,7 +20,6 @@ public class Collection {
         return sCollection;
     }
 
-
     private Collection(Context context) {
         mContacts = new ArrayList<>();
     }
@@ -28,5 +28,12 @@ public class Collection {
         return mContacts;
     }
 
-
+    public Contacts getContacts(UUID id) {
+        for (Contacts contacts : mContacts) {
+            if (contacts.getmId().equals(id)) {
+                return contacts;
+            }
+        }
+        return null;
+    }
 }

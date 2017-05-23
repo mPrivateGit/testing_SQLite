@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
 
-                AddContactFragment addContactFragment = new AddContactFragment();
-                mCostulFragment = addContactFragment;
+                AddContact addContact = new AddContact();
+                mCostulFragment = addContact;
                 ft.add(R.id.frgmCont, mCostulFragment);
                 ft.commit();
             }
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction ft = fm.beginTransaction();
 
                 // добавляем фрагмент
-                GetContactFragment myFragment = new GetContactFragment();
+                GetContact myFragment = new GetContact();
                 mCostulFragment = myFragment;
                 ft.add(R.id.frgmCont, mCostulFragment);
                 ft.commit();

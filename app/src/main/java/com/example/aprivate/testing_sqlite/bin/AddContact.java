@@ -4,6 +4,7 @@ package com.example.aprivate.testing_sqlite.bin;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,7 @@ import android.widget.EditText;
 
 import com.example.aprivate.testing_sqlite.R;
 
-public class AddContactFragment extends Fragment {
+public class AddContact extends Fragment {
     private static final String TAG = "ADD-------------: ";
 
     private Button mButtonAdd;
@@ -27,7 +28,7 @@ public class AddContactFragment extends Fragment {
 
     @Override
     public View onCreateView( LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_add, container, false);
 
         mButtonAdd = (Button) v.findViewById(R.id.add_button);
@@ -50,6 +51,12 @@ public class AddContactFragment extends Fragment {
 
                 //Collection.getInstance().getContacts().add(c);
                 Collection.sCollection.getContacts().add(c);
+
+
+                Log.d(TAG, Collection.sCollection.getContacts()
+                        .get(Collection.sCollection.getContacts().size()-1)
+                        .getmId().toString());
+
 
                 Intent i = new Intent(getContext(), MainActivity.class);
                 startActivity(i);
