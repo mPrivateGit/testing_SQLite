@@ -26,7 +26,7 @@ public class RVF extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.recyclerview_lis, container, false);
+        View v = inflater.inflate(R.layout.activity_recycler_view, container, false);
         mRecyclerView = (RecyclerView) v.findViewById(R.id.recycler_view_id);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),
                 DividerItemDecoration.VERTICAL));

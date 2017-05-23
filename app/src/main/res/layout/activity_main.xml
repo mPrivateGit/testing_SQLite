@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="com.example.aprivate.testing_sqlite.bin.AddContact">
 
-    <include layout="@layout/test_layout">
+    <include layout="@layout/activity_toolbar_layout">
 
     </include>
 

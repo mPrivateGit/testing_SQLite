@@ -25,7 +25,6 @@ public class AddContact extends Fragment {
     private String mSecondName;
     private String mPhoneNumber;
 
-
     @Override
     public View onCreateView( LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
@@ -49,9 +48,7 @@ public class AddContact extends Fragment {
                 c.setmSecondNames(mSecondName);
                 c.setmPhoneNumbers(mPhoneNumber);
 
-                //Collection.getInstance().getContacts().add(c);
                 Collection.sCollection.getContacts().add(c);
-
 
                 Log.d(TAG, Collection.sCollection.getContacts()
                         .get(Collection.sCollection.getContacts().size()-1)
