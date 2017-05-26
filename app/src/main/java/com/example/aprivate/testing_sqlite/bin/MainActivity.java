@@ -3,6 +3,7 @@ package com.example.aprivate.testing_sqlite.bin;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -12,7 +13,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 
 import com.example.aprivate.testing_sqlite.R;
 
@@ -21,11 +21,9 @@ import com.example.aprivate.testing_sqlite.R;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MAIN=======:";
 
-    private Button mButtonNewContact;
-
+    private FloatingActionButton mButtonNewContact;
     private RecyclerView mRectcleView;
     private LinearLayoutManager mLinearLayoutManager;
-
     private Fragment mCostulFragment;
 
     @Override
@@ -42,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         mLinearLayoutManager = new LinearLayoutManager(this);
 
         //Add fragment
-        mButtonNewContact = (Button) findViewById(R.id.new_contact);
+        mButtonNewContact = (FloatingActionButton) findViewById(R.id.new_contact);
         mButtonNewContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
