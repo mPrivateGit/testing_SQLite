@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
                 AddContact addContact = new AddContact();
                 mCostulFragment = addContact;
-                ft.add(R.id.frgmCont, mCostulFragment);
+                ft.add(R.id.recycler_view_container, mCostulFragment);
                 ft.commit();
             }
         });
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
             RVF recyclerViewFragment = new RVF();
             mCostulFragment = recyclerViewFragment;
-            ft.add(R.id.frgmCont, mCostulFragment);
+            ft.add(R.id.recycler_view_container, mCostulFragment);
             ft.commit();
         } else {
             mCostulFragment.onDestroy();
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
             RVF recyclerViewFragment = new RVF();
             mCostulFragment = recyclerViewFragment;
-            ft.add(R.id.frgmCont, mCostulFragment);
+            ft.add(R.id.recycler_view_container, mCostulFragment);
             ft.commit();
         }
     }

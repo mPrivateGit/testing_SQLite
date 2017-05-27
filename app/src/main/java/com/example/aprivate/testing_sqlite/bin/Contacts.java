@@ -12,7 +12,11 @@ public class Contacts {
     private UUID mId;
 
     public Contacts(){
-        mId = UUID.randomUUID();
+        this(UUID.randomUUID());
+    }
+
+    public Contacts(UUID id){
+        mId = id;
     }
 
     public String getmFirstNames() {

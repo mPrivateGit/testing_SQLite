@@ -22,6 +22,12 @@ public class RVF extends Fragment{
     private RecyclerView mRecyclerView;
     private TestCustomAdapter mTestCustomAdapter;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -99,7 +105,7 @@ public class RVF extends Fragment{
 
         private List<Contacts> mContacts = Collection.sCollection.getContacts();
         private View.OnClickListener mListener;
-        private RecyclerView mRecyclerView;
+        private RecyclerView recyclerView;
 
 
         public TestCustomAdapter(List<Contacts> contacts, View.OnClickListener listener) {
@@ -130,13 +136,13 @@ public class RVF extends Fragment{
         @Override
         public void onAttachedToRecyclerView(RecyclerView recyclerView) {
             super.onAttachedToRecyclerView(recyclerView);
-            this.mRecyclerView = recyclerView;
+            this.recyclerView = recyclerView;
         }
 
         @Override
         public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
             super.onDetachedFromRecyclerView(recyclerView);
-            this.mRecyclerView = null;
+            this.recyclerView = null;
         }
 
 

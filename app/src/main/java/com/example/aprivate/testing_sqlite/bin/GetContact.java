@@ -59,7 +59,7 @@ public class GetContact extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        onDestroyView();
+        Collection.get(getActivity()).updateContacts(mContacts);
     }
 
 //        mTextViewFirstName.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "fonts/"));

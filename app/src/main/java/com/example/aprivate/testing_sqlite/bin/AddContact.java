@@ -4,7 +4,6 @@ package com.example.aprivate.testing_sqlite.bin;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,12 +47,7 @@ public class AddContact extends Fragment {
                 c.setmSecondNames(mSecondName);
                 c.setmPhoneNumbers(mPhoneNumber);
 
-                Collection.sCollection.getContacts().add(c);
-
-                Log.d(TAG, Collection.sCollection.getContacts()
-                        .get(Collection.sCollection.getContacts().size()-1)
-                        .getmId().toString());
-
+                Collection.sCollection.addContact(c);
 
                 Intent i = new Intent(getContext(), MainActivity.class);
                 startActivity(i);
