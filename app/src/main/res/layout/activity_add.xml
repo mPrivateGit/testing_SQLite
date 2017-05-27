@@ -1,36 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.aprivate.sqlite.util.AddContact">
+    android:background="@drawable/add_fon"
+    tools:context="com.example.aprivate.testing_sqlite.bin.AddContact">
 
     <EditText
         android:id="@+id/set_first_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/set_first_name"
-        android:inputType="text"/>
+        android:textColor="#ffffff"
+        android:inputType="text"
+        android:layout_gravity="top"
+        android:layout_marginTop="20dp"
+        android:textColorHint="#b92638"
+        android:textStyle="bold"/>
     <EditText
         android:id="@+id/set_second_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/set_second_name"
-        android:inputType="text"/>
+        android:inputType="text"
+        android:textColor="#ffffff"
+        android:layout_marginTop="80dp"
+        android:textColorHint="#b92638"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/add_button"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/add_button"
+        android:layout_marginBottom="60dp"
+        android:textColorHint="#000000"
+        android:textColor="#ffffff"
+        android:textColorHighlight="#000000"
+        android:textSize="25sp"
+        android:textStyle="italic"/>
+
     <EditText
         android:id="@+id/set_phone_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/set_phone_number"
-        android:inputType="phone"/>
-    <Button
-        android:id="@+id/add_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/add_button"/>
+        android:inputType="phone"
+        android:textColor="#ffffff"
+        android:layout_marginTop="140dp"
+        android:textColorHint="#b92638"
+        android:textStyle="bold"/>
 
-
-</LinearLayout>
+</FrameLayout>

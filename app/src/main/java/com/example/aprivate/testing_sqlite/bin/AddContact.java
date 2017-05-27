@@ -2,6 +2,7 @@ package com.example.aprivate.testing_sqlite.bin;
 
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,7 @@ public class AddContact extends AppCompatActivity {
         setContentView(R.layout.activity_add);
 
         mButtonAdd = (Button) findViewById(R.id.add_button);
+        mButtonAdd.getBackground().setColorFilter(000000, PorterDuff.Mode.MULTIPLY);
         mEditTextFirstName = (EditText) findViewById(R.id.set_first_name);
         mEditTextSecondName = (EditText) findViewById(R.id.set_second_name);
         mEditTextPhoneNumber = (EditText) findViewById(R.id.set_phone_number);
