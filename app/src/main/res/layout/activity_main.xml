@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/icon_fon"
     tools:context="com.example.aprivate.testing_sqlite.bin.AddContact">
 
     <include layout="@layout/activity_toolbar_layout">

@@ -3,16 +3,15 @@ package com.example.aprivate.testing_sqlite.bin;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.aprivate.testing_sqlite.R;
 
-public class AddContact extends Fragment {
+public class AddContact extends AppCompatActivity {
     private static final String TAG = "ADD-------------: ";
 
     private Button mButtonAdd;
@@ -25,19 +24,18 @@ public class AddContact extends Fragment {
     private String mPhoneNumber;
 
     @Override
-    public View onCreateView( LayoutInflater inflater, ViewGroup container,
-                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_add, container, false);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add);
 
-        mButtonAdd = (Button) v.findViewById(R.id.add_button);
-        mEditTextFirstName = (EditText) v.findViewById(R.id.set_first_name);
-        mEditTextSecondName = (EditText) v.findViewById(R.id.set_second_name);
-        mEditTextPhoneNumber = (EditText) v.findViewById(R.id.set_phone_number);
+        mButtonAdd = (Button) findViewById(R.id.add_button);
+        mEditTextFirstName = (EditText) findViewById(R.id.set_first_name);
+        mEditTextSecondName = (EditText) findViewById(R.id.set_second_name);
+        mEditTextPhoneNumber = (EditText) findViewById(R.id.set_phone_number);
 
         mButtonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 mFirstName = mEditTextFirstName.getText().toString();
                 mSecondName = mEditTextSecondName.getText().toString();
                 mPhoneNumber = mEditTextPhoneNumber.getText().toString();
@@ -49,10 +47,9 @@ public class AddContact extends Fragment {
 
                 Collection.sCollection.addContact(c);
 
-                Intent i = new Intent(getContext(), MainActivity.class);
+                Intent i = new Intent(AddContact.this, MainActivity.class);
                 startActivity(i);
             }
         });
-        return v;
     }
 }

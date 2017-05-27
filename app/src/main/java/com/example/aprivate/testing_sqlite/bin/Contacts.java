@@ -24,7 +24,7 @@ public class Contacts {
         return mFirstNames;
     }
     public void setmFirstNames(String mFirstNames) {
-        this.mFirstNames = mFirstNames;
+        this.mFirstNames = mFirstNames + " ";
     }
     public String getmSecondNames() {
         return mSecondNames;
